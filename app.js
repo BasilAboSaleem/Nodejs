@@ -9,6 +9,26 @@ app.use(express.urlencoded({ extended: true }));
 const Mydatamodel = require('./models/mydataCHEMA');
 //
 app.set('view engine', 'ejs') 
+//
+app.use(express.static('public'))
+//auto refresh code//
+const path = require("path");
+const livereload = require("livereload");
+const liveReloadServer = livereload.createServer();
+liveReloadServer.watch(path.join(__dirname, 'public'));
+ 
+ 
+const connectLivereload = require("connect-livereload");
+app.use(connectLivereload());
+ 
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+  }, 100);
+});
+//end auto refresh code//
+
+//
 
 
 app.get('/', (req, res) => {

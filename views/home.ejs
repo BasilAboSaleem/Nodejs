@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصفحة الرئيسية</title>
+    <title> <%= mytitel %> </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,6 +56,12 @@
         <input type="text" name="userName" placeholder="أدخل البيانات" required>
         <button type="submit">إرسال لقاعدة البيانات</button>
     </form>
+
+    <h1>اسمك هو ...</h1>
+
+    <%= arr.at(-1) %>
+
+
     <footer>
         <p>&copy;  باسل ابو سليم 2025 جميع الحقوق محفوظة</p>
     </footer>
